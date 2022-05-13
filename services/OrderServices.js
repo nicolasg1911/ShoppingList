@@ -1,3 +1,4 @@
+const res = require('express/lib/response');
 const orderProvider = require('../providers/OrderProvider');
 
 const createServices = (app) => {
@@ -17,6 +18,12 @@ const createServices = (app) => {
         });
     });
 
+    app.put('/api/order/edit/:id', (req, res)=>{
+        let order = req.params.id;
+        orderProvider.updatePayment(order, (result)=>{
+            res.send(result);
+        })
+    });
 
 
 }
