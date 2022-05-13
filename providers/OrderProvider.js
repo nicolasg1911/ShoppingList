@@ -19,7 +19,7 @@ const addOrder = (order)=>{
 }
 
 const updatePayment = (order, onresult)=>{
-    db.con.query("UPDATE Order_A00365529 SET paid = 1 WHERE id =('"+order+"')",(err)=>{
+    db.con.query("UPDATE Order_A00365529 SET paid = 1, payDate = CURRENT_TIMESTAMP WHERE id =('"+order+"')",(err)=>{
         if(!err){
             console.log({result:"OK"});
         }else{
