@@ -18,5 +18,16 @@ const addOrder_Products = (order_product)=>{
     });
 }
 
+const delete_Product = (product,onresult)=>{
+    db.con.query("DELETE FROM Order_Products_A00365529 WHERE ('"+product.productId+"')", (err)=>{
+        if(!err){
+            console.log({result:"OK"});
+        }else{
+            console.log({result:"ERROR"})
+        }
+    });
+}
+
 module.exports.getAll = getAll;
 module.exports.addOrder_Products = addOrder_Products;
+module.exports.delete_Product=delete_Product;

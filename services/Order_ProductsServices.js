@@ -17,6 +17,12 @@ const createServices = (app) => {
         });
     });
 
+    app.delete('/api/order_product/delete', (req, res)=>{
+        let product = req.body;
+        order_productProvider.delete_Product(product, (result)=>{
+            res.send(result);
+        });
+    });
 
 
 }
