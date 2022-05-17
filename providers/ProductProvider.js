@@ -18,5 +18,7 @@ const addProduct = (product)=>{
     });
 }
 
+    
+
 module.exports.getAll = getAll;
 module.exports.addProduct = addProduct;

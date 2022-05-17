@@ -25,6 +25,12 @@ const createServices = (app) => {
         })
     });
 
+    app.get('/api/ordersInformation/getOrder',(req,res)=>{
+        let id = req.body;
+        orderProvider.orderInfo(id,(result)=>{
+            res.send(result);
+        });
+    });
 
 }
 

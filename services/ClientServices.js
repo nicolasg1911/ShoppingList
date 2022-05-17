@@ -17,6 +17,12 @@ const createServices = (app) => {
         });
     });
 
+    app.get('/api/users/getId', (req, res)=>{
+        let natId = req.body;
+        userProvider.getNatId(natId, (result)=>{
+            res.send(result);
+        });
+    });
 
 
 }

@@ -28,6 +28,18 @@ const updatePayment = (order, onresult)=>{
     });
 }
 
+const orderInfo = (order, onresult)=>{
+    db.con.query("SELECT Product_A00365529.id, Product_A00365529.name, Product_A00365529.price, Product_A00365529.id, Order_Products_A00365529.amount FROM (Product_A00365529 INNER JOIN Order_Products_A00365529 "+" ON Product_A00365529.id=Order_Products_A00365529.productId)INNER JOIN Order_A00365529 ON Order_Products_A00365529.orderId = Order_A00365529.id WHERE Order_A00365529.id = ('"+order.id+"')",(err,result)=>{
+        if(!err){
+            onresult(result);
+        }
+    });
+
+   
+}
+
+
 module.exports.getAll = getAll;
 module.exports.addOrder = addOrder;
 module.exports.updatePayment=updatePayment;
+module.exports.orderInfo=orderInfo;
